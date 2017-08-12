@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @scheduler_hit.task %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @scheduler_hit.interval %>
+</p>
+
+<%= link_to 'Edit', edit_scheduler_hit_path(@scheduler_hit) %> |
+<%= link_to 'Back', scheduler_hits_path %>

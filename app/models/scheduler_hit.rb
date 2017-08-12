@@ -1,0 +1,2 @@
+class SchedulerHit < ApplicationRecord
+end

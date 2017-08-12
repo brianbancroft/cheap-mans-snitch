@@ -1,0 +1,2 @@
+module SchedulerHitsHelper
+end

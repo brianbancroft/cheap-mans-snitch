@@ -1,0 +1,27 @@
+<%= form_with(model: scheduler_hit, local: true) do |form| %>
+  <% if scheduler_hit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scheduler_hit.errors.count, "error") %> prohibited this scheduler_hit from being saved:</h2>
+
+      <ul>
+      <% scheduler_hit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :task %>
+    <%= form.text_field :task, id: :scheduler_hit_task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interval %>
+    <%= form.text_field :interval, id: :scheduler_hit_interval %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
