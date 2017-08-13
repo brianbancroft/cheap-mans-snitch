@@ -1,28 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Scheduler Hits</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Task</th>
+            <th>Environment</th>
+            <th>Interval</th>
+            <th>Time - UTC</th>
+            <th>Time - Local</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @scheduler_hits.each do |scheduler_hit| %>
+          <tr>
+            <td><%= scheduler_hit.task %></td>
+            <td><%= scheduler_hit.environment %></td>
+            <td><%= scheduler_hit.interval %></td>
+            <td><%= scheduler_hit.created_at %></td>
+            <td><%= scheduler_hit.created_at.localtime.strftime '%H:%I' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Task</th>
-      <th>Interval</th>
-      <th>Time - UTC</th>
-      <th>Time - Local</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @scheduler_hits.each do |scheduler_hit| %>
-      <tr>
-        <td><%= scheduler_hit.task %></td>
-        <td><%= scheduler_hit.interval %></td>
-        <td><%= scheduler_hit.created_at %></td>
-        <td><%= scheduler_hit.created_at.localtime.strftime '%H:%I' %></td>
-        <td><%= link_to 'Show', scheduler_hit %></td>
-        <td><%= link_to 'Destroy', scheduler_hit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

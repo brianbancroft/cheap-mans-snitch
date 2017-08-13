@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170812144723) do
   create_table "scheduler_hits", force: :cascade do |t|
     t.string "task"
     t.string "interval"
+    t.string "environment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

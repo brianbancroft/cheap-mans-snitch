@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :scheduler_hits
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/', to: 'scheduler_hits#index'
+  post '/new-hit', to: 'scheduler_hits#new_scheduler_action'
+  delete '/scheduler_hit/:id', to: 'scheduler_hits#destroy'
 end
