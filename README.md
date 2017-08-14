@@ -1,24 +1,20 @@
-# README
+## Dead Man's Snitch isn't the best
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app seeks to be a no-name version of DMS, in that it does the following:
+1. Records things that happen by a post action
+2. Displays those things
 
-Things you may want to cover:
+### Still in the pipe
+3. Warns each hour when something doesn't fire.
 
-* Ruby version
+### Test this app
+currently, the record is at http://careerjsm-cheap-mans-snitch.herokuapp.com
+- User: brian@careerjsm.com
+- Pass: 1Berekley
 
-* System dependencies
+To fire something at it, try this command in your terminal:
+```shell
+curl -H "Content-Type: application/json" -X POST -d '{"task":"random test by YOUR NAME","interval":"manual", "environment":"testing"}' http://careerjsm-cheap-mans-snitch.herokuapp.com/new-hit
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You should receive a null value returned, and the log should get larger with your thing.
