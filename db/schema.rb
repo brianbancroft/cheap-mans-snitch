@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812144723) do
+ActiveRecord::Schema.define(version: 20170815010914) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "scheduler_hits", force: :cascade do |t|
     t.string "task"
     t.string "interval"
     t.string "environment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scheduler_tasks", force: :cascade do |t|
+    t.string "task"
+    t.string "interval"
+    t.string "environment"
+    t.datetime "last_checkin"
+    t.boolean "sent_warning"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
