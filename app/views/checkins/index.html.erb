@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <h1>Cheap Man's Snitch</h1>
+    <p>This app lists every hit to this app in real time. See <a href="https://github.com/brianbancroft/cheap-mans-snitch">repo</a> for details.</p>
+  </div>
+  <div class="row">
+    <div class="col-xs-10">
+      <h3>Tasks</h3>
+      <table class="table table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Task</th>
+            <th>Envrionment</th>
+            <th>Interval</th>
+            <th>Last Checkin - Local Time</th>
+            <th>On Schedule?</th>
+            <th>Warning Sent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @scheduler_tasks.each do |scheduler_task| %>
+          <tr>
+            <td><%= scheduler_task.task %></td>
+            <td><%= scheduler_task.interval %></td>
+            <td><%= scheduler_task.environment %></td>
+            <td><%= scheduler_task.last_checkin %></td>
+            <td><%= scheduler_task.on_schedule ? 'Yes' : 'No' %></td>
+            <td><%= scheduler_task.sent_warning ? 'Warning Sent' : 'No Warning Sent' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

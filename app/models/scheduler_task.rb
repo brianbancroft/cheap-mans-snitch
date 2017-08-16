@@ -9,13 +9,21 @@ class SchedulerTask < ApplicationRecord
   # '17-hour'
   # '1-day'
 
-  def self.extract_interval(interval_string)
-    if (match = interval_string.match(/(.*)-minute/)).present?
+  def on_schedule
+    DateTime.current <= last_checkin + (3 * extract_interval)
+  end
+
+  def extract_interval
+    if (match = interval.match(/(.*)-minute/)).present?
       match[0].to_i.minutes
-    elsif (match = interval_string.match(/(.*)-hour/)).present?
+    elsif (match = interval.match(/(.*)-hour/)).present?
       match[0].to_i.hours
-    elsif (match = interval_string.match(/(.*)-day/)).present?
+    elsif (match = interval.match(/(.*)-day/)).present?
       match[0].to_i.days
     end
+  end
+
+  def self.check_tasks
+    binding.pry
   end
 end

@@ -18,6 +18,8 @@ curl -H "Content-Type: application/json" -X POST -d '{"task":"random test by YOU
 ```
 
 ## TODOs
+- [ ] Fix Bootstrap in the asset pipeline
+- [ ] Send webhook to #random in the event of a failure
 - [ ] Enforce interval string values through rspec
 - [ ] Enforce interval string values using the model before_create method
 

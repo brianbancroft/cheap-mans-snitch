@@ -3,7 +3,7 @@ namespace :scheduler do
 
   task check_on_tasks: :environment do
     puts 'verifying all tasks are carried out'
-    SchedulerHit.check_intervals
+    SchedulerTask.check_tasks
   end
 
   task hello_world: :environment do
