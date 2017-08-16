@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20170816131824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "checkin", force: :cascade do |t|
-    t.bigint "scheduler_tasks_id"
+  create_table "checkins", force: :cascade do |t|
+    t.bigint "scheduler_task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["scheduler_tasks_id"], name: "index_checkin_on_scheduler_tasks_id"
+    t.index ["scheduler_task_id"], name: "index_checkins_on_scheduler_task_id"
   end
 
   create_table "scheduler_tasks", force: :cascade do |t|

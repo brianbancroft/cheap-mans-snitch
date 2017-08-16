@@ -17,4 +17,8 @@ To fire something at it, try this command in your terminal:
 curl -H "Content-Type: application/json" -X POST -d '{"task":"random test by YOUR NAME","interval":"manual", "environment":"testing"}' http://careerjsm-cheap-mans-snitch.herokuapp.com/new-hit
 ```
 
+## TODOs
+- [ ] Enforce interval string values through rspec
+- [ ] Enforce interval string values using the model before_create method
+
 You should receive a null value returned, and the log should get larger with your thing.

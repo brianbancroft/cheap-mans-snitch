@@ -6,33 +6,29 @@
     <p>This app lists every hit to this app in real time. See <a href="https://github.com/brianbancroft/cheap-mans-snitch">repo</a> for details.</p>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered">
-        <thead class="thead-inverse">
+    <h3>Tasks</h3>
+    <table class="table table-bordered">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Task</th>
+          <th>Envrionment</th>
+          <th>Interval</th>
+          <th>Last Checkin - Local Time</th>
+          <th>Warning Sent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @scheduler_tasks.each do |scheduler_task| %>
           <tr>
-            <th>Task</th>
-            <th>Environment</th>
-            <th>Interval</th>
-            <th>Time - UTC</th>
-            <th>Time - Local</th>
-            <th colspan="3"></th>
+            <td><%= scheduler_hit.task %></td>
+            <td><%= scheduler_hit.interval %></td>
+            <td><%= scheduler_hit.environment %></td>
+            <td><%= scheduler_hit.last_checkin %></td>
+            <td><%= scheduler_hit.sent_warning ? 'Warning Sent' : 'No Warning Sent' %></td>
           </tr>
-        </thead>
-        <% unless @scheduler_hits.empty? %>
-          <tbody>
-            <% @scheduler_hits.each do |scheduler_hit| %>
-            <tr>
-              <td><%= scheduler_hit.task %></td>
-              <td><%= scheduler_hit.environment %></td>
-              <td><%= scheduler_hit.interval %></td>
-              <td><%= scheduler_hit.created_at %></td>
-              <td><%= scheduler_hit.created_at.localtime.strftime '%H:%I' %></td>
-            </tr>
-            <% end %>
-          </tbody>
         <% end %>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
 </div>
 
