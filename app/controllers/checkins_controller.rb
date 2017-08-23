@@ -1,7 +1,7 @@
 class CheckinsController < ApplicationController
-  # http_basic_authenticate_with name: 'brian@careerjsm.com',
-  #                              password: '1Berekley',
-  #                              except: :new_scheduler_action
+  http_basic_authenticate_with name: ENV['username'],
+                               password: ENV['password'],
+                               except: :new_scheduler_action
 
   # GET /
   def index
