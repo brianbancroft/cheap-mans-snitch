@@ -18,11 +18,13 @@ curl -H "Content-Type: application/json" -X POST -d '{"task":"random test by YOU
 ```
 
 ## TODOs
-- [ ] Fix Bootstrap in the asset pipeline
-- [ ] Send webhook to #random in the event of a failure
+- [x] Fix Bootstrap in the asset pipeline
+- [x] Send webhook to ~#random~ #devops in the event of a failure
 - [ ] Lazy error handling for slack webhooks
 - [ ] Update the warning sent attribute if required
 - [ ] Enforce interval string values through rspec
 - [ ] Enforce interval string values using the model before_create method
+- [ ] Determine why offsets aren't working for the bootstrap columns
+- [ ] Use Pagination for checkins
 
 You should receive a null value returned, and the log should get larger with your thing.

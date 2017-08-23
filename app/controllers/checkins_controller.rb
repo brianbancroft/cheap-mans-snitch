@@ -6,6 +6,7 @@ class CheckinsController < ApplicationController
   # GET /
   def index
     @scheduler_tasks = SchedulerTask.all
+    @checkins = Checkin.all.order('created_at DESC')
   end
 
   # POST /new-hit
