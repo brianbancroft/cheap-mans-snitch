@@ -10,7 +10,7 @@ class SchedulerTask < ApplicationRecord
   # '1-day'
 
   def on_schedule
-    DateTime.current <= last_checkin + (3 * extract_interval)
+    DateTime.current <= last_checkin + extract_interval
   end
 
   def extract_interval
@@ -24,6 +24,10 @@ class SchedulerTask < ApplicationRecord
   end
 
   def self.check_tasks
-    binding.pry
+    find_each { |task| task.send_warning unless task.on_schedule }
+  end
+
+  def send_warning
+    SlackNotification.send_warning("Bad news, bud: #{task} on #{environment} didn't check in after #{extract_interval}")
   end
 end
